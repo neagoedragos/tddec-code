@@ -18,15 +18,16 @@ UNITY_CFLAGS += -DUNITY_OUTPUT_CHAR=UnityOutputCharSpy_OutputChar
 UNITY_WARNINGFLAGS = -Wall -Werror -Wswitch-default -Wno-missing-prototypes
 #UNITY_WARNINGFLAGS += -Wshadow 
 
-SRC_DIRS = \
+#SRC_DIRS = \
 	$(PROJECT_HOME_DIR)/src/LedDriver \
 	$(PROJECT_HOME_DIR)/src/HomeAutomation \
 
 TEST_SRC_DIRS = \
 	$(PROJECT_TEST_DIR)\
-	$(PROJECT_TEST_DIR)/HomeAutomation\
+#	$(PROJECT_TEST_DIR)/HomeAutomation\
 	$(PROJECT_TEST_DIR)/LedDriver\
-	$(PROJECT_TEST_DIR)/stdio\
+
+$(PROJECT_TEST_DIR)/stdio\
 	$(UNITY_HOME)/unity\
 	$(UNITY_HOME)/src\
     $(UNITY_HOME)/extras/fixture/src\
@@ -40,7 +41,7 @@ INCLUDE_DIRS =\
   $(UNITY_HOME)/src\
   $(UNITY_HOME)/extras/fixture/src\
   $(UNITY_HOME)/extras/fixture/test\
-  $(PROJECT_HOME_DIR)/include/HomeAutomation\
+#  $(PROJECT_HOME_DIR)/include/HomeAutomation\
   $(PROJECT_HOME_DIR)/include/LedDriver\
   $(PROJECT_HOME_DIR)/include/util\
   $(PROJECT_HOME_DIR)/mocks\
