@@ -54,3 +54,26 @@ TEST(LedDriver, AllOn)
 	LedDriver_TurnAllOn();
 	TEST_ASSERT_EQUAL_HEX16(0xffff, virtualLeds);
 }
+
+TEST(LedDriver, LedMemoryIsNotReadable)
+{
+	virtualLeds = 0xffff;
+	LedDriver_TurnOn(8);
+	TEST_ASSERT_EQUAL_HEX16(0x80, virtualLeds);
+}
+
+TEST(LedDriver, UpperAndLowerBounds)
+{
+	LedDriver_TurnOn(1);
+	LedDriver_TurnOn(16);
+	TEST_ASSERT_EQUAL_HEX16(0x8001, virtualLeds);
+}
+
+TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
+{
+	LedDriver_TurnOn(-1);
+	LedDriver_TurnOn(0);
+	LedDriver_TurnOn(17);
+	LedDriver_TurnOn(3141);
+	TEST_ASSERT_EQUAL_HEX(0, virtualLeds);
+}
